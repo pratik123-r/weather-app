@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const app=express();
 const request=require('request');
 const path=require('path');
+const port=process.env.PORT || 4444
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname , '/views')));
 app.get('/',function(req,res){
@@ -27,5 +28,5 @@ app.post('/getweatherdata',(req,res)=>{
 
 app.set('view engine','ejs');
 
-app.listen(4444,()=>{console.log("server listning on port 4444")});
+app.listen(port,()=>{console.log("server listning on port "+port)});
 
